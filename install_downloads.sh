@@ -130,20 +130,6 @@ if [ "$(id -u)" != "0" ]; then
     echo "This script requires superuser access..."
 fi
 
-
-# unzip/install tools
-check_directory ./downloads/tools/*.zip
-if [ $? -ne 0 ]; then
-    echo Installing tools...
-    cd ./downloads/tools
-    for tool in *.zip; do
-        install $tool
-    done
-    cd ../..
-fi
-
-if [ "$1" != "toolsonly" ]; then
-
 # unzip/install kexts
 check_directory ./downloads/kexts/*.zip
 if [ $? -ne 0 ]; then
@@ -186,33 +172,12 @@ if [ $? -ne 0 ]; then
 fi
 
 # install kexts in the repo itself
-
-# patching AppleHDA
-$SUDO rm -Rf $KEXTDEST/AppleHDA_ALC283.kext
-install_kext AppleHDA_ALC283.kext
-
-$SUDO rm -Rf $KEXTDEST/USBXHC_dell_3437.kext
-install_kext USBXHC_dell_3437.kext
-
-#if [[ $MINOR_VER -ge 11 ]]; then
-    # create custom AppleBacklightInjector.kext and install
-    #./patch_backlight.sh
-    #install_kext AppleBacklightInjector.kext
-    # remove ACPIBacklight.kext if it is installed (doesn't work with 10.11)
-    #if [ -d $SLE/ACPIBacklight.kext ]; then
-    #    $SUDO rm -Rf $SLE/ACPIBacklight.kext
-    #fi
-#fi
-
-#check_directory *.kext
-#if [ $? -ne 0 ]; then
-#    for kext in *.kext; do
-#        install_kext $kext
-#    done
-#fi
+cd kexts
+for kext in *.kext; do
+    install_kext $kext
+done
+cd -
 
 # force cache rebuild with output
 $SUDO touch $SLE && $SUDO kextcache -u /
 
-
-fi # "toolsonly"
