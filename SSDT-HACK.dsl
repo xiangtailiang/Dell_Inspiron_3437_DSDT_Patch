@@ -164,6 +164,29 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
                 "RM,oem-table-id", "HSW-LPT",
             })
         }
+        
+        Name(RMCF, Package()
+        {
+            "Controller", Package()
+            {
+                "WakeDelay", 0,
+            },
+            "Sentelic FSP", Package()
+            {
+                "DisableDevice", ">y",
+            },
+            "ALPS GlidePoint", Package()
+            {
+                "DisableDevice", ">y",
+            },
+            "Synaptics TouchPad", Package()
+            {
+                "MultiFingerVerticalDivisor", 9,
+                "MultiFingerHorizontalDivisor", 9,
+                "MomentumScrollThreshY", 12,
+                "DynamicEWMode", ">y",
+            }
+         })
 
         
     }
