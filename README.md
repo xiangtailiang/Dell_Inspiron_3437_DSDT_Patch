@@ -134,6 +134,27 @@ chmod +x *.sh
 
 ```
 
+All kext will be install as follow:
+
+```code
+VoodooPS2Trackpad.kext
+VoodooPS2Mouse.kext
+VoodooPS2Keyboard.kext
+VoodooPS2Controller.kext
+USBXHC_dell_3437.kext
+RealtekRTL8100.kext
+IntelBacklight.kext
+FakeSMC.kext
+FakePCIID_Intel_HD_Graphics.kext
+FakePCIID_Broadcom_WiFi.kext
+FakePCIID.kext
+CodecCommander.kext
+AppleHDA_ALC283.kext
+ACPIBatteryManager.kext
+
+```
+
+
 ###4.Final config.plist
 
 Copy the  project `config.plist` to `/EFI/Clover/`, replace the old one.
