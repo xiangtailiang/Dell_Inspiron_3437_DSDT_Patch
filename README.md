@@ -71,7 +71,7 @@ git clone https://github.com/xiangtailiang/Dell_Inspiron_3437_DSDT_Patch.git
 
 ```
 
-###1.Patch DSDT
+##1.Patch DSDT
 
 With the current project, no patched DSDT/SSDTs are used. Instead, this guide uses Clover hotpatches and a set of "add-on" SSDTs. 
 The advantage of hotpatching is that hardware and BIOS can be changed without re-extract/re-patch. It is also a bit easier to setup as the normal extract/disassemble/patch/compile process is not needed.
@@ -94,7 +94,7 @@ cp -rf build/SSDT-HACK.aml /Volumes/EFI/EFI/Clover/ACPI/patched/SSDT-HACK.aml
 
 ```
 
-###2.Power Management
+##2.Power Management
 
 Use the ssdtPRgen.sh script by Pike R. Alpha: [https://github.com/Piker-Alpha/ssdtPRGen.sh](https://github.com/Piker-Alpha/ssdtPRGen.sh)
 
@@ -121,7 +121,7 @@ cp ~/Library/ssdtPRgen/ssdt.aml /Volumes/EFI/EFI/Clover/ACPI/patched/SSDT.aml
 
 ```
 
-###3.Kext Installation
+##3.Kext Installation
 
 The `download.sh` script will automatically gather the latest version of all tools (patchmatic, iasl, MaciASL) and all the kexts (FakeSMC.kext, IntelBacklight.kext, ACPIBatteryManager.kext, etc) from bitbucket. The `install_downloads.sh` will automatically install them to the proper locations.
 
@@ -155,7 +155,7 @@ ACPIBatteryManager.kext
 ```
 
 
-###4.Final config.plist
+##4.Final config.plist
 
 Copy the  project `config.plist` to `/EFI/Clover/`, replace the old one.
 
